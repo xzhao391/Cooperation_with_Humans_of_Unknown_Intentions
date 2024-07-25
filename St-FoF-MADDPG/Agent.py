@@ -89,7 +89,7 @@ class MLPNetwork(nn.Module):
         self.net = nn.Sequential(
             nn.Linear(in_dim, 64), nn.SiLU(),
             nn.Linear(64, 128), nn.SiLU(),
-            nn.Linear(128, 64), nn.SiLU(),
+            nn.Linear(128, 64), nn.PReLU(),
             nn.Linear(64, out_dim),
         ).apply(self.init)
 
