@@ -100,7 +100,7 @@ class MADDPG:
 
     def learn(self, batch_size, gamma):
         # start = time.time()
-        adv_eps_s = 1e-3
+        adv_eps_s = 1e-4
         adv_eps = 1e-3
         for i, agent in enumerate(self.agents):
             if i == 0:
