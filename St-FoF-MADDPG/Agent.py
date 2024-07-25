@@ -87,11 +87,10 @@ class MLPNetwork(nn.Module):
     def __init__(self, in_dim, out_dim, hidden_dim=64, non_linear=nn.SiLU()):
         super(MLPNetwork, self).__init__()
         self.net = nn.Sequential(
-            nn.Linear(in_dim, hidden_dim), non_linear,
-            nn.Linear(hidden_dim, 256), non_linear,
-            nn.Linear(256, 128), non_linear,
-            nn.Linear(128, hidden_dim), non_linear,
-            nn.Linear(hidden_dim, out_dim),
+            nn.Linear(in_dim, 64), nn.SELU(),
+            nn.Linear(64, 128), nn.SELU(),
+            nn.Linear(128, 64), nn.SELU(),
+            nn.Linear(64, out_dim),
         ).apply(self.init)
 
     @staticmethod
